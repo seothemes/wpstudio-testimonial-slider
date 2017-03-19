@@ -1,5 +1,5 @@
 === Genesis Testimonial Slider ===
-Contributors: frankschrijvers
+Contributors: frankschrijvers, seothemes
 Tags: testimonials, testimonial, testimonials plugin, widget, genesis, slider, Genesis Framework, genesiswp
 Requires at least: 3.6
 Tested up to: 4.7.3

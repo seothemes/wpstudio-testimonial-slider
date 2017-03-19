@@ -1,41 +1,27 @@
 <?php
+/**
+ * This file displays the shortcode output.
+ */
 
-defined( 'WPINC' ) or die;
+// If this file is called directly, abort.
+if ( ! defined( 'WPINC' ) ) {
+	die;
+}
 
+/**
+ * Shortcode Output.
+ *
+ * @return string $data The shortcode output.
+ */
 function wps_carouselle(){
 
 	ob_start();
 
-	echo '<div id="gts-testimonials"><div class="wrap"><ul class="testimonials-list">';
+	include( dirname( __FILE__ ) . '/gts-frontend.php' );
 
-    $loop = new WP_Query( array(
-    	'post_type' => 'Testimonial',
-    	'posts_per_page' => -1 )
-    );
+	$data = ob_get_clean();
 
-    while ( $loop->have_posts() ) : $loop->the_post();
-
-    echo '<li>';
-
-    if ( has_post_thumbnail() ) {
-
-        echo the_post_thumbnail('gts-thumbnail');
-
-    }
-
-    echo '<blockquote>' . get_the_content() . '</blockquote>';
-    echo '<h5>' . get_the_title() . '</h5>';
-    echo '</li>';
-
-    endwhile;
-
-    echo '</ul></div></div>';
-
-     wp_reset_query();
-
-     $data = ob_get_clean();
-
-    return $data;
+	return $data;
 
 }
 

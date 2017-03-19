@@ -1,20 +1,33 @@
 <?php
+/**
+ * This file displays the testimonials on the front end.
+ */
 
-defined( 'WPINC' ) or die;
+// If this file is called directly, abort.
+if ( ! defined( 'WPINC' ) ) {
+	die;
+}
 
-    echo '<div id="gts-testimonials"><div class="wrap">';
-    echo '<ul class="testimonials-list">';
+echo '<div id="gts-testimonials"><div class="wrap">';
+echo '<ul class="testimonials-list">';
 
-    $loop = new WP_Query( array( 'post_type' => 'Testimonial', 'posts_per_page' => -1 ) );
-    while ( $loop->have_posts() ) : $loop->the_post();
-    echo '<li>';
-    if ( has_post_thumbnail() ) {
-        echo the_post_thumbnail('gts-thumbnail');
-    }
-    echo '<blockquote>' . get_the_content() . '</blockquote>';
-    echo '<h5>' . get_the_title() . '</h5>';
-    echo '</li>';
-    endwhile; wp_reset_query();
+$loop = new WP_Query( array(
+	'post_type' => 'Testimonial',
+	'posts_per_page' => -1,
+) );
 
-    echo '</ul>';
-    echo '</div></div>';
+while ( $loop->have_posts() ) : $loop->the_post();
+
+	echo '<li>';
+	if ( has_post_thumbnail() ) {
+		echo the_post_thumbnail( 'gts-thumbnail' );
+	}
+	echo '<blockquote>' . get_the_content() . '</blockquote>';
+	echo '<h5>' . get_the_title() . '</h5>';
+	echo '</li>';
+
+endwhile;
+
+wp_reset_postdata();
+
+echo '</ul></div></div>';

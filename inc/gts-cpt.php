@@ -1,8 +1,16 @@
 <?php
+/**
+ * This file registers the Testimonial custom post type.
+ */
 
-defined( 'WPINC' ) or die;
+// If this file is called directly, abort.
+if ( ! defined( 'WPINC' ) ) {
+	die;
+}
 
-//* Register Custom Post Type
+/**
+ * Register Custom Post Type.
+ */
 function wpstudio_testimonials() {
 
 	$labels = array(
@@ -37,7 +45,7 @@ function wpstudio_testimonials() {
 		'label'                 => __( 'Testimonial', 'gts-plugin' ),
 		'description'           => __( 'Testimonials', 'gts-plugin' ),
 		'labels'                => $labels,
-		'supports'              => array( 'title', 'editor', 'thumbnail', ),
+		'supports'              => array( 'title', 'editor', 'thumbnail' ),
 		'hierarchical'          => false,
 		'public'                => true,
 		'show_ui'               => true,
