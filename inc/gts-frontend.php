@@ -42,7 +42,7 @@ function gts_rating() {
 	if ( ! empty( $rating ) ) {
 
 		echo '<div class="gts-rating">';
-		echo wp_kses_post( sprintf( '<span class="screen-reader-text" itemprop="reviewRating">%s</span>', $rating ) );
+		echo sprintf( '<span class="screen-reader-text" itemprop="reviewRating">%s</span>', $rating );
 
 		// Loop through rating number and display star.
 		for ( $i = 0; $i < $rating ; $i++ ) {
