@@ -158,6 +158,20 @@ function gts_params() {
                         pauseOnHover:   ' . $gts_pause . ',
                         loop:           ' . $gts_loop . ',
 						pause:          ' . genesis_get_option( 'gts_speed' , 'gts-settings' ) . ',
+						responsive : [
+						    {
+						        breakpoint:1023,
+						        settings: {
+						            item:2
+						        }
+						    },
+						    {
+						        breakpoint:860,
+						        settings: {
+						            item:1
+						        }
+						    }
+						]
 					} );
 				} );';
 
