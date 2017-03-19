@@ -33,6 +33,28 @@ function gts_image() {
 }
 
 /**
+ * Testimonial Rating.
+ */
+function gts_rating() {
+
+	$rating = get_post_meta( get_the_ID(), '_gts_rating', true );
+
+	if ( ! empty( $rating ) ) {
+
+		echo '<div class="gts-rating">';
+		echo wp_kses_post( sprintf( '<span class="screen-reader-text" itemprop="reviewRating">%s</span>', $rating ) );
+
+		// Loop through rating number and display star.
+		for ( $i = 0; $i < $rating ; $i++ ) {
+			echo '<span class="star"></span>';
+		}
+
+		echo '</div>';
+	}
+
+}
+
+/**
  * Testimonial Content.
  */
 function gts_content() {
@@ -47,6 +69,18 @@ function gts_title() {
 }
 
 /**
+ * Testimonial Company.
+ */
+function gts_company() {
+
+	$company = get_post_meta( get_the_ID(), '_gts_company', true );
+
+	if ( ! empty( $company ) ) {
+		echo wp_kses_post( sprintf( '<span class="gts-company">%s</span>', $company ) );
+	}
+}
+
+/**
  * Closing Markup.
  */
 function gts_markup_close() {
@@ -56,9 +90,11 @@ function gts_markup_close() {
 // Add actions to hook.
 add_action( 'gts', 'gts_markup_open', 2 );
 add_action( 'gts', 'gts_image', 4 );
-add_action( 'gts', 'gts_content', 6 );
-add_action( 'gts', 'gts_title', 8 );
-add_action( 'gts', 'gts_markup_close', 10 );
+add_action( 'gts', 'gts_rating', 6 );
+add_action( 'gts', 'gts_content', 8 );
+add_action( 'gts', 'gts_title', 10 );
+add_action( 'gts', 'gts_company', 12 );
+add_action( 'gts', 'gts_markup_close', 14 );
 
 while ( $loop->have_posts() ) : $loop->the_post();
 

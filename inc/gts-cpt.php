@@ -41,7 +41,7 @@ function wpstudio_testimonials() {
 		'filter_items_list'     => __( 'Filter items list', 'gts-plugin' ),
 	);
 	$args = array(
-		'public' => true,
+		'public' 				=> true,
 		'label'                 => __( 'Testimonial', 'gts-plugin' ),
 		'description'           => __( 'Testimonials', 'gts-plugin' ),
 		'labels'                => $labels,
@@ -60,9 +60,8 @@ function wpstudio_testimonials() {
 		'publicly_queryable'    => true,
 		'rewrite'               => false,
 		'capability_type'       => 'page',
+		'register_rating'		=> 'add_rating_metabox',
 	);
 	register_post_type( 'testimonial', $args );
-
 }
-
 add_action( 'init', 'wpstudio_testimonials', 0 );

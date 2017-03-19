@@ -27,3 +27,14 @@ ul.lSPager {
 .lSSlideOuter .lightSlider {
     height: 100% !important;
 }
+
+/* Ratings */
+
+.star {
+	width: 16px;
+	height: 16px;
+	background-image:url(../img/star.png);
+	-webkit-background-size: contain;
+	background-size: contain;
+	display: inline-block;
+}

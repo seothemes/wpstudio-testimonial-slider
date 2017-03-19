@@ -91,6 +91,8 @@ add_action( 'wp_enqueue_scripts', 'wpstudio_gts_load_scripts', 99 );
 function wpstudio_gts_init() {
 
 	require( dirname( __FILE__ ) . '/inc/gts-admin.php' );
+	include( dirname( __FILE__ ) . '/inc/gts-company.php' );
+	include( dirname( __FILE__ ) . '/inc/gts-rating.php' );
 	include( dirname( __FILE__ ) . '/inc/gts-cpt.php' );
 	include( dirname( __FILE__ ) . '/inc/gts-widget.php' );
 	include( dirname( __FILE__ ) . '/inc/gts-shortcode.php' );
