@@ -20,3 +20,10 @@ ul.testimonials-list li img {
 ul.lSPager {
 	margin: 0;
 }
+
+/* Page Jump Fix */
+
+.lSSlideOuter .lSPager, 
+.lSSlideOuter .lightSlider {
+    height: 100% !important;
+}
