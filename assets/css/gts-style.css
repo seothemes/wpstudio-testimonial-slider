@@ -1,0 +1,22 @@
+/* Some basic styling */
+
+ul.testimonials-list {
+	margin: 0;
+}
+
+ul.testimonials-list li {
+	list-style: none;
+	text-align:  center;
+}
+
+ul.testimonials-list li blockquote::before {
+	display: none;
+}
+
+ul.testimonials-list li img {
+	border-radius: 50%;
+}
+
+ul.lSPager {
+	margin: 0;
+}
